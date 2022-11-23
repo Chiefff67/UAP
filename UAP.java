@@ -9,29 +9,45 @@ public class UAP {
         Scanner inputStr = new Scanner(System.in);
         //var log cred
         boolean terdaftar = false;
-        String nama=null;
-        String NIM=null;
-        String username=null;
+        boolean loginStatus = false;
+        String nama = null;
+        String NIM = null;
+        String username = null;
 
         //menu pertama
         int menu;
         do {
+            System.out.println(loginStatus);
+//            clear();
             menuAdministrasi();
             menu = inputMenu.nextInt();
             switch (menu) {
                 case 1:
-                    System.out.print("nama");
+                    System.out.print("Daftarkan nama lengkap: ");
                     nama = inputStr.nextLine();
+                    System.out.println("nama belakang anda akan menjadi username.");
                     System.out.print("NIM");
                     NIM = inputStr.nextLine();
                     username = namaAkhir(nama);
+                    terdaftar = true;
                     break;
                 case 2:
-                    System.out.print("user");
-                    String loginUsername=inputStr.nextLine();
-                    System.out.print("pass");
-                    String loginPass=inputStr.nextLine();
-                    terdaftar=login(loginUsername,loginPass,username,NIM);
+                    if (terdaftar) {
+                        System.out.println("Login");
+                        System.out.print("Masukan username (nama belakang) : ");
+                        String loginUsername = inputStr.nextLine();
+                        System.out.print("Masukan password (NIM) :");
+                        String loginPass = inputStr.nextLine();
+                        loginStatus = login(loginUsername, loginPass, username, NIM);
+                        if (loginStatus) {
+                            System.out.println("Login sukses!");
+//                            garis();
+//                            menuPerpus();
+                        }
+                    } else {
+                        garis();
+                        System.out.println("Anda belum mendaftar!\nHarap daftar terlebih dahulu");
+                    }
                     break;
                 case 3:
                     System.out.println("Terima kasih!");
@@ -39,12 +55,23 @@ public class UAP {
                 default:
 
             }
-        } while (menu != 3);
+        } while (menu != 3 && !loginStatus);
 
 
         //daftar dan login
 
+        //Daftar buku
+//index = id
+        String judulBuku = "Bumi";
+        int jumlahBuku = 5;
         //menu selanjutnya
+        int menuPerpus;
+        do {
+            System.out.println("====Perpustakaan THOGC====");
+            System.out.println("1. Tampilkan daftar buku\n2. Pinjam Buku\n3. Request Buku\n4. Keluar");
+            System.out.print("Pilih menu : ");
+            menuPerpus = inputMenu.nextInt();
+        } while (menuPerpus != 4);
         daftarBuku();
         pinjamBuku();
         requestBuku();
@@ -52,7 +79,7 @@ public class UAP {
 
     public static void menuAdministrasi() {
         System.out.println("=====Perpustakaan THOGC=====");
-        System.out.println("1. Daftar\n2. Login");
+        System.out.println("1. Daftar\n2. Login\n3.Keluar");
         System.out.println("Pilih menu : ");
     }
 
@@ -62,19 +89,22 @@ public class UAP {
         return username;
     }
 
-    public static boolean login(String user,String pass,String dataUser, String PassUser){
-        boolean terdaftar=false;
-        if(user.equals(dataUser)&&pass.equals(PassUser)){
-            terdaftar=true;
-        }else {
+    public static boolean login(String user, String pass, String dataUser, String PassUser) {
+        boolean sama = false;
+        if (user.equals(dataUser) && pass.equals(PassUser)) {
+            sama = true;
+        } else {
             Error();
         }
-        return terdaftar;
+        return sama;
     }
 
-//    public static void daftar(){
+    //    public static void daftar(){
 //        nama = anjay;
 //    }
+    public static void menuPerpus() {
+        System.out.println("msdjnakbk");
+    }
 
     public static void daftarBuku() {
 
@@ -95,5 +125,9 @@ public class UAP {
 
     public static void Error() {
         System.out.println("Input salah!");
+    }
+
+    public static void garis() {
+        System.out.println("====================================================================================");
     }
 }
