@@ -8,6 +8,7 @@ public class UAP {
         Scanner inputMenu = new Scanner(System.in);
         Scanner inputStr = new Scanner(System.in);
         //var log cred
+        final String kesulitanUAP = "Sangat Meyusahkan karena tidak boleh pakai global var";
         boolean terdaftar = false;
         boolean loginStatus = false;
         String nama = null;
@@ -17,7 +18,7 @@ public class UAP {
         //menu pertama
         int menu;
         do {
-            System.out.println(loginStatus);
+//            System.out.println(loginStatus);
 //            clear();
             menuAdministrasi();
             menu = inputMenu.nextInt();
@@ -41,6 +42,7 @@ public class UAP {
                         loginStatus = login(loginUsername, loginPass, username, NIM);
                         if (loginStatus) {
                             System.out.println("Login sukses!");
+//                            loginStatus=true;
 //                            garis();
 //                            menuPerpus();
                         } else {
@@ -58,38 +60,38 @@ public class UAP {
                     Error();
 
             }
-        } while (menu != 3);
+        } while (menu != 3 && !loginStatus);
 
 
         //daftar dan login
 
         //Daftar buku
 //index = id
-        String judulBuku1 = "Bumi";
+        final String judulBuku1 = "Bumi";
         int jumlahBuku1 = 9;
-        String judulBuku2 = "Bulan";
+        final String judulBuku2 = "Bulan";
         int jumlahBuku2 = 8;
-        String judulBuku3 = "Matahari";
+        final String judulBuku3 = "Matahari";
         int jumlahBuku3 = 7;
-        String judulBuku4 = "Bintang";
+        final String judulBuku4 = "Bintang";
         int jumlahBuku4 = 6;
-        String judulBuku5 = "Ceroz dan Batozar";
+        final String judulBuku5 = "Ceroz dan Batozar";
         int jumlahBuku5 = 5;
-        String judulBuku6 = "Komet";
+        final String judulBuku6 = "Komet";
         int jumlahBuku6 = 5;
-        String judulBuku7 = "Komet Minor";
+        final String judulBuku7 = "Komet Minor";
         int jumlahBuku7 = 4;
-        String judulBuku8 = "Selena";
+        final String judulBuku8 = "Selena";
         int jumlahBuku8 = 3;
-        String judulBuku9 = "Nebula";
+        final String judulBuku9 = "Nebula";
         int jumlahBuku9 = 3;
-        String judulBuku10 = "S Putih";
+        final String judulBuku10 = "S Putih";
         int jumlahBuku10 = 2;
-        String judulBuku11 = "Lumpu";
+        final String judulBuku11 = "Lumpu";
         int jumlahBuku11 = 2;
-        String judulBuku12 = "Bibi Gili";
+        final String judulBuku12 = "Bibi Gili";
         int jumlahBuku12 = 1;
-        String judulBuku13 = "Sagara";
+        final String judulBuku13 = "Sagara";
         int jumlahBuku13 = 1;
 
         //menu selanjutnya
@@ -109,83 +111,84 @@ public class UAP {
                     garis();
                     System.out.println("Pilih buku: ");
                     int indexBuku = inputMenu.nextInt();
-                    switch (indexBuku){
+                    switch (indexBuku) {
                         case 1:
-                            jumlahBuku1=pinjamBuku(jumlahBuku1);
-                            System.out.println("anda meminjam "+judulBuku1);
-                            System.out.println(judulBuku1+" yang tersedia sekarang sebanyak "+jumlahBuku1+" buku");
+                            jumlahBuku1 = pinjamBuku(jumlahBuku1);
+                            System.out.println("anda meminjam " + judulBuku1);
+                            System.out.println(judulBuku1 + " yang tersedia sekarang sebanyak " + jumlahBuku1 + " buku");
                             break;
 
                         case 2:
-                            jumlahBuku2=pinjamBuku(jumlahBuku2);
-                            System.out.println("anda meminjam "+judulBuku2);
-                            System.out.println(judulBuku2+" yang tersedia sekarang sebanyak "+jumlahBuku2+" buku");
+                            jumlahBuku2 = pinjamBuku(jumlahBuku2);
+                            System.out.println("anda meminjam " + judulBuku2);
+                            System.out.println(judulBuku2 + " yang tersedia sekarang sebanyak " + jumlahBuku2 + " buku");
                             break;
                         case 3:
-                            jumlahBuku3=pinjamBuku(jumlahBuku3);
-                            System.out.println("anda meminjam "+judulBuku3);
-                            System.out.println(judulBuku3+" yang tersedia sekarang sebanyak "+jumlahBuku3+" buku");
+                            jumlahBuku3 = pinjamBuku(jumlahBuku3);
+                            System.out.println("anda meminjam " + judulBuku3);
+                            System.out.println(judulBuku3 + " yang tersedia sekarang sebanyak " + jumlahBuku3 + " buku");
                             break;
                         case 4:
-                            jumlahBuku4=pinjamBuku(jumlahBuku4);
-                            System.out.println("anda meminjam "+judulBuku4);
-                            System.out.println(judulBuku4+" yang tersedia sekarang sebanyak "+jumlahBuku4+" buku");
+                            jumlahBuku4 = pinjamBuku(jumlahBuku4);
+                            System.out.println("anda meminjam " + judulBuku4);
+                            System.out.println(judulBuku4 + " yang tersedia sekarang sebanyak " + jumlahBuku4 + " buku");
                             break;
                         case 5:
-                            jumlahBuku5=pinjamBuku(jumlahBuku5);
-                            System.out.println("anda meminjam "+judulBuku5);
-                            System.out.println(judulBuku5+" yang tersedia sekarang sebanyak "+jumlahBuku5+" buku");
+                            jumlahBuku5 = pinjamBuku(jumlahBuku5);
+                            System.out.println("anda meminjam " + judulBuku5);
+                            System.out.println(judulBuku5 + " yang tersedia sekarang sebanyak " + jumlahBuku5 + " buku");
                             break;
                         case 6:
-                            jumlahBuku6=pinjamBuku(jumlahBuku6);
-                            System.out.println("anda meminjam "+judulBuku6);
-                            System.out.println(judulBuku6+" yang tersedia sekarang sebanyak "+jumlahBuku6+" buku");
+                            jumlahBuku6 = pinjamBuku(jumlahBuku6);
+                            System.out.println("anda meminjam " + judulBuku6);
+                            System.out.println(judulBuku6 + " yang tersedia sekarang sebanyak " + jumlahBuku6 + " buku");
                             break;
                         case 7:
-                            jumlahBuku7=pinjamBuku(jumlahBuku7);
-                            System.out.println("anda meminjam "+judulBuku7);
-                            System.out.println(judulBuku7+" yang tersedia sekarang sebanyak "+jumlahBuku7+" buku");
+                            jumlahBuku7 = pinjamBuku(jumlahBuku7);
+                            System.out.println("anda meminjam " + judulBuku7);
+                            System.out.println(judulBuku7 + " yang tersedia sekarang sebanyak " + jumlahBuku7 + " buku");
                             break;
 
                         case 8:
-                            jumlahBuku8=pinjamBuku(jumlahBuku8);
-                            System.out.println("anda meminjam "+judulBuku8);
-                            System.out.println(judulBuku8+" yang tersedia sekarang sebanyak "+jumlahBuku8+" buku");
+                            jumlahBuku8 = pinjamBuku(jumlahBuku8);
+                            System.out.println("anda meminjam " + judulBuku8);
+                            System.out.println(judulBuku8 + " yang tersedia sekarang sebanyak " + jumlahBuku8 + " buku");
                             break;
                         case 9:
-                            jumlahBuku9=pinjamBuku(jumlahBuku9);
-                            System.out.println("anda meminjam "+judulBuku9);
-                            System.out.println(judulBuku9+" yang tersedia sekarang sebanyak "+jumlahBuku9+" buku");
+                            jumlahBuku9 = pinjamBuku(jumlahBuku9);
+                            System.out.println("anda meminjam " + judulBuku9);
+                            System.out.println(judulBuku9 + " yang tersedia sekarang sebanyak " + jumlahBuku9 + " buku");
                             break;
                         case 10:
-                            jumlahBuku1=pinjamBuku(jumlahBuku10);
-                            System.out.println("anda meminjam "+judulBuku10);
-                            System.out.println(judulBuku10+" yang tersedia sekarang sebanyak "+jumlahBuku10+" buku");
+                            jumlahBuku1 = pinjamBuku(jumlahBuku10);
+                            System.out.println("anda meminjam " + judulBuku10);
+                            System.out.println(judulBuku10 + " yang tersedia sekarang sebanyak " + jumlahBuku10 + " buku");
                             break;
                         case 11:
-                            jumlahBuku11=pinjamBuku(jumlahBuku1);
-                            System.out.println("anda meminjam "+judulBuku11);
-                            System.out.println(judulBuku11+" yang tersedia sekarang sebanyak "+jumlahBuku1+" buku");
+                            jumlahBuku11 = pinjamBuku(jumlahBuku1);
+                            System.out.println("anda meminjam " + judulBuku11);
+                            System.out.println(judulBuku11 + " yang tersedia sekarang sebanyak " + jumlahBuku1 + " buku");
                             break;
                         case 12:
-                            jumlahBuku12=pinjamBuku(jumlahBuku12);
-                            System.out.println("anda meminjam "+judulBuku12);
-                            System.out.println(judulBuku12+" yang tersedia sekarang sebanyak "+jumlahBuku12+" buku");
+                            jumlahBuku12 = pinjamBuku(jumlahBuku12);
+                            System.out.println("anda meminjam " + judulBuku12);
+                            System.out.println(judulBuku12 + " yang tersedia sekarang sebanyak " + jumlahBuku12 + " buku");
                             break;
                         case 13:
-                            jumlahBuku13=pinjamBuku(jumlahBuku13);
-                            System.out.println("anda meminjam "+judulBuku13);
-                            System.out.println(judulBuku13+" yang tersedia sekarang sebanyak "+jumlahBuku13+" buku");
+                            jumlahBuku13 = pinjamBuku(jumlahBuku13);
+                            System.out.println("anda meminjam " + judulBuku13);
+                            System.out.println(judulBuku13 + " yang tersedia sekarang sebanyak " + jumlahBuku13 + " buku");
                             break;
                     }
                     break;
                 case 3:
                     System.out.print("Judul buku yang di request: ");
-                    String capeGaBolehPakeArray=inputStr.nextLine();
+                    String capeGaBolehPakeArray = inputStr.nextLine();
                     requestBuku(capeGaBolehPakeArray);
                     break;
                 case 4:
                     System.out.println("Terima kasih!");
+                    break;
                 default:
                     Error();
             }
@@ -232,7 +235,7 @@ public class UAP {
     }
 
     public static void requestBuku(String judul) {
-        System.out.println(judul+" akan tersedia bulan Depan!");
+        System.out.println(judul + " akan tersedia bulan Depan!");
     }
 
 //    public static void clear() {
